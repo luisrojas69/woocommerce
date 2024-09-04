@@ -28,21 +28,23 @@
                 <div class="card-body" style="min-height: 28vh;">
                     <div class="card-title d-flex align-items-start justify-content-between">
                         <div class="avatar flex-shrink-0">
-                            <img src="{{ asset('assets/img/icons/user-green.svg') }}" alt="user-green icon" class="rounded" />
+                            {{-- <img src="{{ asset('assets/img/icons/user-green.svg') }}" alt="user-green icon" class="rounded" /> --}}
+                            <span class="badge bg-label-primary rounded-circle p-2">
+                                <i class="bx bx-home bx-sm"></i>
+                              </span>
                         </div>
                         <div class="dropdown">
                             <button class="btn p-0" type="button" id="cardOpt3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="bx bx-dots-vertical-rounded"></i>
                             </button>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt3">
-                                <a class="dropdown-item" href="javascript:void(0);">View More</a>
+                                <a class="dropdown-item" href="{{ route('local.product.index') }}">Ver Todos</a>
                             </div>
                         </div>
                     </div>
-                    <span class="fw-medium d-block mb-3">Productos en Tienda</span>
+                    <span class="fw-medium d-block mb-3">Productos en Tienda Fisica</span>
                     <h5 class="text-success fw-medium mt-3">
-                        {{-- {{ $products_local }} --}}
-                        500
+                        {{ $products_local }}
                     </h5>
                 </div>
             </div>
@@ -52,21 +54,23 @@
                 <div class="card-body" style="min-height: 28vh;">
                     <div class="card-title d-flex align-items-start justify-content-between">
                         <div class="avatar flex-shrink-0">
-                            <img src="{{ asset('assets/img/icons/user.svg') }}" alt="user icon" class="rounded" />
+                            <span class="badge bg-label-success rounded-circle p-2">
+                                <i class="bx bx-cloud bx-sm"></i>
+                              </span>                                                      
+                            {{-- <img src="{{ asset('assets/img/icons/user.svg') }}" alt="user icon" class="rounded" /> --}}
                         </div>
                         <div class="dropdown">
                             <button class="btn p-0" type="button" id="cardOpt6" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="bx bx-dots-vertical-rounded"></i>
                             </button>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt6">
-                                <a class="dropdown-item" href="javascript:void(0);">View More</a>
+                                <a class="dropdown-item" href="{{ route('web.product.index') }}">Ver Todos</a>
                             </div>
                         </div>
                     </div>
-                    <span class="fw-medium d-block mb-3">Productos WEB</span>
+                    <span class="fw-medium d-block mb-3">Productos en Tienda Virtual</span>
                     <h5 class="text-success fw-medium mt-3">
-                        {{-- {{ $products_web }} --}}
-                    680
+                        {{ $products_web }}
                     </h5>
                 </div>
             </div>

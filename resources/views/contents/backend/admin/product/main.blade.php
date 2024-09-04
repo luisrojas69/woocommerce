@@ -1,11 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Productos en Tienda Fisica')
-@push('css')
-<link  href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet">
-<link  href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css" rel="stylesheet">
-<link  href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
-@endpush
+
 @section('app-content')
 <div class="layout-wrapper layout-content-navbar">
     <div class="layout-container">
@@ -21,24 +17,23 @@
                 @include('partials.navbar')
                 {{-- !Navbar --}}
 
-                {{-- Content Wrapper --}}
-            <div class="content-wrapper">
-
-                {{-- Content --}}
-            <div class="container-xxl flex-grow-1 container-p-y">
-
+        {{-- Content Wrapper --}}
+    <div class="content-wrapper">
+        {{-- Content --}}
+      <div class="container-xxl flex-grow-1 container-p-y">
                         
         <div class="row">
           <div class="col-12">
 
             <div class="row mb-4 g-3">
-              <div class="col-sm-6 col-xl-6">
+              <div class="col-sm-6 col-xl-3">
                 <div class="card">
                   <div class="card-body">
                     <div class="d-flex align-items-center justify-content-between">
                       <div class="content-left">
                         <h3 class="mb-0">{{ $products_local }}</h3>
-                        <small>Total Productos en Tienda Fisica</small>
+                       <small>Productos en Tienda Fisica<a href="javascript:void(0)"><i class='bx bx-radio-circle-marked'></i></a></small>
+
                       </div>
                       <span class="badge bg-label-primary rounded-circle p-2">
                         <i class="bx bx-home bx-sm"></i>
@@ -47,13 +42,13 @@
                   </div>
                 </div>
               </div>
-              <div class="col-sm-6 col-xl-6">
+              <div class="col-sm-6 col-xl-3">
                 <div class="card">
                   <div class="card-body">
                     <div class="d-flex align-items-center justify-content-between">
                       <div class="content-left">
                         <h3 class="mb-0">{{ $products_web }}</h3>
-                        <small>Productos en Tienda Virtual</small>
+                       <small>Productos en Tienda Virtual<a href="{{ route('web.product.index') }}"><i class='bx bx-right-arrow-alt'></i></a></small>
                       </div>
                       <span class="badge bg-label-success rounded-circle p-2">
                         <i class="bx bx-cloud bx-sm"></i>
@@ -62,8 +57,37 @@
                   </div>
                 </div>
               </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <div class="content-left">
+                        <h3 class="mb-0">510</h3>
+                        <small>Productos con Stock</small>
+                      </div>
+                      <span class="badge bg-label-success rounded-circle p-2">
+                        <i class="bx bx-check-circle bx-sm"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <div class="content-left">
+                        <h3 class="mb-0">168</h3>
+                        <small>Productos sin Stock</small>
+                      </div>
+                      <span class="badge bg-label-danger rounded-circle p-2">
+                        <i class="bx bx-x-circle bx-sm"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>           
-
 
             <div class="card">
               <!-- /.card-header -->
@@ -87,8 +111,6 @@
               </div>
               <!-- /.card-body -->
             </div>
-
-
             <!-- /.card -->
           </div>
           <!-- /.col -->
@@ -140,7 +162,7 @@ $(document).ready( function () {
         }
     });
  
-    $('#product-datatable').DataTable({
+   $('#product-datatable').DataTable({
         dom: 'Bfrtip',
         processing: true,
         serverSide: true,

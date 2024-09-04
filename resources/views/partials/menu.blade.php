@@ -1,7 +1,7 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
 
-        <a href="{{ route('/') }}" class="app-brand-link">
+        <a href="{{ route('admin.home') }}" class="app-brand-link">
             <span class="app-brand-logo demo">
                 <img src="{{ asset('assets/img/logo/logo.png'); }}">
             </span>
@@ -29,6 +29,7 @@
             <li class="menu-header small text-uppercase">
                 <span class="menu-header-text">Administrar Productos</span>
             </li>
+
             <li class="menu-item {{ request()->is('*/products') ? 'active open' : '' }}">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
                     <i class="menu-icon tf-icons bx bx-layout"></i>
@@ -47,6 +48,14 @@
                     <li class="menu-item {{ request()->is('web/products') ? 'active' : '' }}">
                         <a href="{{ route('web.product.index') }}" class="menu-link">
                             <div data-i18n="product lists">En Tienda Virtual</div>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="menu-sub">
+                    <li class="menu-item {{ request()->is('async/products') ? 'active' : '' }}">
+                        <a href="{{ route('async.product.index') }}" class="menu-link">
+                            <div data-i18n="product lists">No Sincronizados</div>
                         </a>
                     </li>
                 </ul>
